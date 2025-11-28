@@ -2,8 +2,7 @@ __pycache__/
 venv/
 .env
 *.pyc
-
 .idea/
 .vscode/
-
 *.log
+*.env
