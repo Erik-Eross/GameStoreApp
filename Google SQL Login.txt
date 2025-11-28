@@ -1,0 +1,4 @@
+Google SQL Login
+
+user ID: gamestore-sql
+password: iH+CkoBXMuf|)GJp

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Game Store</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+    <!--navigation bar-->
+    <header class="bg-white shadow">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+
+            <!--game page title-->
+            <h1 class="text-2xl font-bold tracking-tight">
+                <a href="/" class="hover:text-blue-600 transition">Game Store</a>
+            </h1>
+
+            <!--navigation of buttons-->
+            <nav class="space-x-4 text-lg">
+                <a href="/" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                <a href="/about" class="text-gray-700 hover:text-blue-600 transition">About</a>
+                <a href="/register" class="text-gray-700 hover:text-blue-600 transition">Register</a>
+
+                {% if session.get('user') %}
+                    <a href="/logout" class="text-gray-700 hover:text-red-600 transition">Logout</a>
+                {% else %}
+                    <a href="/login" class="text-gray-700 hover:text-blue-600 transition">Login</a>
+                {% endif %}
+            </nav>
+
+        </div>
+    </header>
+
+    <!--main content wrapper-->
+    <main class="max-w-4xl mx-auto px-6 py-8">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>

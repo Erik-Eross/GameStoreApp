@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>{{ game.title }}</h2>
+
+<p><strong>Platform:</strong> {{ game.platform }}</p>
+<p><strong>Price:</strong> £{{ game.price }}</p>
+
+<h3>Description</h3>
+<p>{{ game.description }}</p>
+
+<h3 class="mt-6 mb-2 text-xl font-bold">Reviews</h3>
+
+{% if session.user %}
+<form method="POST">
+    <textarea
+        name="review"
+        class="w-full p-2 border rounded mb-2"
+        placeholder="Write your review..."
+        required></textarea>
+
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">
+        Submit Review
+    </button>
+</form>
+{% else %}
+<p class="text-gray-600">
+    <a href="/login" class="text-blue-600">Log in</a> to leave a review.
+</p>
+{% endif %}
+
+<hr class="my-4">
+
+{% for r in reviews %}
+<div class="p-3 border rounded mb-3 bg-gray-50">
+    <p class="font-semibold">{{ r.user_email }}</p>
+    <p class="text-sm text-gray-600">{{ r.timestamp }}</p>
+    <p class="mt-1">{{ r.text }}</p>
+</div>
+{% endfor %}
+
+<a href="/">Back to home</a>
+
+{% endblock %}

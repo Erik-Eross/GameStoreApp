@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!--featured games section-->
+<h2 class="text-3xl font-bold mb-6">Featured Games</h2>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for game in featured_games %}
+    <div class="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition">
+
+        <!--image placeholder for each featured game-->
+        <img src="/static/img/image_placeholder.png" alt="Featured game image" class="w-full h-40 object-cover">
+
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">{{ game.title }}</h3>
+            <p class="text-gray-600">{{ game.platform }}</p>
+            <p class="text-lg font-bold mt-2 mb-4">£{{ game.price }}</p>
+
+            <a
+                href="/game/{{ game.id }}"
+                class="block text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+            >
+                View Details
+            </a>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+<hr class="my-8">
+
+<!--top reviews section-->
+<h2 class="text-3xl font-bold mb-6">Top Reviews</h2>
+
+<div class="space-y-6">
+    {% for review in reviews %}
+    <div class="p-4 border rounded-md bg-white shadow hover:shadow-lg transition">
+        <p><strong>{{ review.user_email }}</strong> - {{ review.timestamp }}</p>
+        <p>{{ review.text }}</p>
+    </div>
+    {% endfor %}
+</div>
+
+<hr class="my-8">
+
+<!--available games section-->
+<h2 class="text-3xl font-bold mb-6">Available Games</h2>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for game in games %}
+    <div class="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition">
+
+        <!--image placeholder for each game-->
+        <img src="/static/img/image_placeholder.png" alt="Game image" class="w-full h-40 object-cover">
+
+        <div class="p-4">
+            <h3 class="text-xl font-semibold">{{ game.title }}</h3>
+            <p class="text-gray-600">{{ game.platform }}</p>
+
+            <p class="text-lg font-bold mt-2 mb-4">£{{ game.price }}</p>
+
+            <a
+                href="/game/{{ game.id }}"
+                class="block text-center bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition"
+            >
+                View Details
+            </a>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% set active_page = "about" %}
+
+{% block content %}
+
+<div class="bg-white shadow rounded-lg p-8">
+    <h1 class="text-3xl font-bold mb-4">About This Project</h1>
+
+    <p class="text-gray-700 leading-relaxed text-lg">
+        This web application is a demonstration <strong>Game Store</strong> built for the
+        <strong>Systems Development</strong> unit.
+        It showcases the integration of relational data, NoSQL storage, secure authentication,
+        and cloud-based services using modern web development practices.
+    </p>
+
+    <p class="text-gray-700 leading-relaxed text-lg mt-4">
+        The system is powered by:
+    </p>
+
+    <ul class="list-disc list-inside mt-4 space-y-2 text-gray-700 text-lg">
+        <li><strong>Flask</strong> for the web framework</li>
+        <li><strong>Google Cloud SQL (MySQL)</strong> for structured game and user data</li>
+        <li><strong>MongoDB Atlas</strong> for unstructured user reviews</li>
+        <li><strong>Google Cloud Functions</strong> for serverless computation</li>
+        <li><strong>Google Cloud Storage</strong> for featured game JSON hosting</li>
+        <li><strong>Tailwind CSS</strong> for modern UI styling</li>
+    </ul>
+
+    <p class="text-gray-700 leading-relaxed text-lg mt-6">
+        This project was designed to demonstrate an end-to-end solution involving secure authentication,
+        database operations, cloud integration, scalable architecture, and clean user interface design.
+    </p>
+</div>
+
+{% endblock %}
