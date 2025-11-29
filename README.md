@@ -1,5 +1,6 @@
 **Game Store Web Application**
 A cloud-integrated game store web application built with Flask, Google Cloud SQL, MongoDB Atlas, and Google Cloud Functions.
+
 This project demonstrates a modern cloud-based architecture suitable for enterprise-level applications.
 
 
@@ -22,7 +23,7 @@ This project demonstrates a modern cloud-based architecture suitable for enterpr
 **Cloud Function Purpose**
 featured-games: Loads featured game data from Google Cloud Storage,
 top-reviews: Returns the latest reviews from MongoDB,
-mesh-service:	Aggregates both functions into a single REST API.
+mesh-service: Aggregates both functions into a single REST API.
 
 Flask now calls one endpoint for simplicity and performance.
 
@@ -43,31 +44,32 @@ Tailwind CSS – Frontend styling.
 
 
 **In-Depth Diagram of the Architecture**
-          +-----------------------+
-          |    Mesh Service API   |
-          | (Cloud Function)      |
-          +-----------+-----------+
-                      |
-        +-------------+-------------+
-        |                           |
-+------------------+     +---------------------+
-| featured-games    |     |    top-reviews     |
-| Cloud Function     |     |   Cloud Function   |
-+------------------+     +---------------------+
+```
+                +---------------------------+
+                |     Mesh Service API      |
+                |       (Cloud Function)    |
+                +-------------+-------------+
+                              |
+                +-------------+-------------+
+                |                           |
+    +------------------------+   +------------------------+
+    |    featured-games      |   |      top-reviews       |
+    |    Cloud Function      |   |     Cloud Function     |
+    +------------------------+   +------------------------+
 
-                ↓ Combined JSON
+                      ↓ Combined JSON
 
-          +-----------------------+
-          |       Flask App       |
-          |  User Auth, Pages     |
-          +-----------+-----------+
-                      |
-          +-----------+-----------+
-          |   Google Cloud SQL    |
-          |       (MySQL)         |
-          +-----------------------+
-          |    MongoDB Atlas      |
-          +-----------------------+
+                +---------------------------+
+                |         Flask App         |
+                |   User Auth, Templates    |
+                +-------------+-------------+
+                              |
+                +-------------+-------------+
+                |      Google Cloud SQL     |
+                +---------------------------+
+                |       MongoDB Atlas       |
+                +---------------------------+
+```
 
 
 **Project Structure**
