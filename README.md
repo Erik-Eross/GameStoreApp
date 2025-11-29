@@ -44,6 +44,7 @@ Tailwind CSS – Frontend styling.
 
 
 **In-Depth Diagram of the Architecture**
+
 ```
                 +---------------------------+
                 |     Mesh Service API      |
@@ -73,6 +74,8 @@ Tailwind CSS – Frontend styling.
 
 
 **Project Structure**
+
+```
 GameStoreApp/
     main.py
     mongoDBTest.py
@@ -92,6 +95,7 @@ GameStoreApp/
         login.html
         register.html
         submitted_account.html
+```
     static/
         css/custom.css
         img/image_placeholder.png
