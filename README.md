@@ -95,7 +95,7 @@ GameStoreApp/
         login.html
         register.html
         submitted_account.html
-```
     static/
         css/custom.css
         img/image_placeholder.png
+```
