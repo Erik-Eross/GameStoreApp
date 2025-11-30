@@ -12,7 +12,7 @@ import requests
 app = Flask(__name__)
 
 mongo_client = MongoClient(
-    "mongodb+srv://s5623281_db_user:CqqS7OoC4wGIltG2@cluster0.3joitcy.mongodb.net/?appName=Cluster0"
+    "mongodb+srv://s5623281_db_user:w1GZ1lWaa0yQSTlu@cluster0.3joitcy.mongodb.net/?appName=Cluster0"
 )
 
 mongo_db = mongo_client["gamestore"]
@@ -31,7 +31,7 @@ def get_db_connection():
     connection = pymysql.connect(
         host="35.246.109.231",
         user="root",
-        password="iH+CkoBXMuf|)GJp",
+        password="nD82LxA!fQ9t-uT7",
         database="gamestore",
         cursorclass=pymysql.cursors.DictCursor
     )
@@ -98,6 +98,16 @@ def game_detail(game_id):
         game=game,
         reviews=reviews
     )
+
+@app.route("/buy/<int:game_id>")
+def buy(game_id):
+    # Fetch game from SQL
+    game = get_game(game_id)
+
+    if not game:
+        return "Game not found", 404
+
+    return render_template("buy.html", game=game)
 
 @app.route("/")
 @app.route("/home")

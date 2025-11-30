@@ -2,6 +2,16 @@
 
 {% block content %}
 
+<section class="bg-white rounded-lg shadow-sm p-8 mb-10">
+    <h2 class="text-3xl font-bold mb-3">Welcome to Steem Store</h2>
+    <p class="text-gray-600 mb-6">
+        Discover top games, read community reviews, and explore featured content!
+    </p>
+    <!--<a href="#games" class="inline-block bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700 transition">
+        Explore Games
+    </a>-->
+</section>
+
 <!--featured games section-->
 <h2 class="text-3xl font-bold mb-6">Featured Games</h2>
 
@@ -9,8 +19,7 @@
     {% for game in featured_games %}
     <div class="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition">
 
-        <!--image placeholder for each featured game-->
-        <img src="/static/img/image_placeholder.png" alt="Featured game image" class="w-full h-40 object-cover">
+        <img src="/static/img/games/{{ game.image }}" alt="{{ game.title }} image" class="w-full h-40 object-cover">
 
         <div class="p-4">
             <h3 class="text-xl font-semibold">{{ game.title }}</h3>
@@ -52,8 +61,7 @@
     {% for game in games %}
     <div class="bg-white shadow rounded-lg overflow-hidden hover:shadow-lg transition">
 
-        <!--image placeholder for each game-->
-        <img src="/static/img/image_placeholder.png" alt="Game image" class="w-full h-40 object-cover">
+        <img src="/static/img/games/{{ game.image }}" alt="{{ game.title }} image" class="w-full h-40 object-cover">
 
         <div class="p-4">
             <h3 class="text-xl font-semibold">{{ game.title }}</h3>

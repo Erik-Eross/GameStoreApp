@@ -2,19 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Game Store</title>
+    <title>Steem Web Store</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 text-gray-900">
-
+<body class="bg-gradient-to-b from-gray-100 to-gray-200 text-gray-900">
     <!--navigation bar-->
-    <header class="bg-white shadow">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+    <header class="backdrop-blur-md bg-white/40 border-b border-gray-300 shadow-sm">
 
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <!--game page title-->
             <h1 class="text-2xl font-bold tracking-tight">
-                <a href="/" class="hover:text-blue-600 transition">Game Store</a>
+                <a href="/" class="hover:text-blue-600 transition">Steem Store</a>
             </h1>
 
             <!--navigation of buttons-->
@@ -34,10 +33,16 @@
     </header>
 
     <!--main content wrapper-->
-    <main class="max-w-4xl mx-auto px-6 py-8">
+    <main class="max-w-4xl mx-auto px-6 pt-8 pb-4">
         {% block content %}
         {% endblock %}
     </main>
+
+    <footer class="bg-white border-t mt-16">
+        <div class="max-w-5xl mx-auto px-6 py-6 text-center text-gray-600 text-sm">
+            <p>2025 Steem Store — A cloud based gaming marketplace demo.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
