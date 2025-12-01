@@ -101,7 +101,7 @@ def game_detail(game_id):
 
 @app.route("/buy/<int:game_id>")
 def buy(game_id):
-    # Fetch game from SQL
+    #fetch game from SQL
     game = get_game(game_id)
 
     if not game:
