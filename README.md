@@ -20,7 +20,7 @@ This project demonstrates a modern cloud-based architecture suitable for enterpr
 - Reviews pulled from MongoDB Atlas  
 - Logged-in users can add reviews  
 
-### ✔ Reviews (MongoDB Atlas)  
+**Reviews (MongoDB Atlas)**
 MongoDB is used to store dynamic user-generated reviews.
 
 **Cloud Function Purpose**
