@@ -7,9 +7,14 @@ import pymysql
 from pymongo import MongoClient
 from datetime import datetime
 import requests
+from dotenv import load_dotenv
+import os
 
 #flask and mongoDB setup
 app = Flask(__name__)
+
+#loads .env for credentials
+load_dotenv()
 
 mongo_client = MongoClient(
     "mongodb+srv://s5623281_db_user:w1GZ1lWaa0yQSTlu@cluster0.3joitcy.mongodb.net/?appName=Cluster0"
@@ -29,10 +34,10 @@ def get_all_games():
 #connection to the database
 def get_db_connection():
     connection = pymysql.connect(
-        host="35.246.109.231",
-        user="root",
-        password="nD82LxA!fQ9t-uT7",
-        database="gamestore",
+        host=os.environ.get("MYSQL_HOST"),
+        user=os.environ.get("MYSQL_USER"),
+        password=os.environ.get("MYSQL_PASSWORD"),
+        database=os.environ.get("MYSQL_DB"),
         cursorclass=pymysql.cursors.DictCursor
     )
     return connection
@@ -231,6 +236,12 @@ def logout():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
+def calculate_discount(price, percent):
+    if percent < 0 or percent > 100:
+        raise ValueError("Invalid discount percentage")
+    return round(price * (1 - percent / 100), 2)
+
 
 #run the app when everything is ready
 if __name__ == '__main__':
